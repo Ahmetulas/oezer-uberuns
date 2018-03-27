@@ -1,0 +1,68 @@
+.staff{
+    display: flex;
+    width: 100%;
+    height: 80vh;
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    h1{
+        color:black;
+        justify-self: flex-start;
+        align-self: flex-start;
+        margin-left: 80px;
+        margin-bottom: 50px;
+        font-size: 40px;
+        font-weight: lighter;
+    }
+
+    .personal{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 20px;
+
+        .person{
+            padding: 0px;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            width: 25%;
+            height: 55vh;
+            background-color: green;
+            margin: 10px;
+            border: 1px solid #888888;
+            box-shadow: 4px 4px 8px #888888;        
+            
+            
+            .selfie{
+                background-size: cover;
+                min-height: 35vh;
+                width: 100%;
+                background-color: red;
+                    background-image: url('https://scontent.cdninstagram.com/vp/1c0421a8402667e435eeaffc48b189a1/5B2FBFA5/t51.2885-15/e35/p320x320/26156560_730618260470401_8436209036642222080_n.jpg');
+                
+            }
+         
+            
+            .information{
+                height: 30vh;
+                width: 100%;
+                background-color: white;
+                color: black;
+
+                h2{
+                    color: black;
+                    margin:20px 20px;
+                }
+                p{
+                    margin: 30px 20px;
+                    font-size: 18px;
+                }
+            }
+        }
+        
+    }
+}

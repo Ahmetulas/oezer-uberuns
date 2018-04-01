@@ -1,45 +1,34 @@
+let widgetSectionPos = document.querySelector('.widget').getBoundingClientRect().top + window.scrollY;
+let widgetSection = document.querySelector('.widget');
 
+let staffSectionPos = document.querySelector('.staff').getBoundingClientRect().top + window.scrollY;
+let staff = document.querySelectorAll('.person');
 
-let section = document.querySelector('.indicators');
-let children = [...section.children];
-let bannerSection = document.querySelector('.banner');
-// let header = document.querySelector('header');
-// let items = [...document.querySelectorAll('.item')];
-// let iconList = [... document.querySelector('.icon-area').children];
-// let categorySectionCoordinate = document.querySelector('.category').getBoundingClientRect().top + window.scrollY;
-// let arrOfItems = [...document.querySelectorAll('.category-item')];
-// let quoteSectionCoordinate = document.querySelector('.quote').getBoundingClientRect().top + window.scrollY;
-// let quote = document.querySelector('.quote');
-// console.log(quoteSectionCoordinate);
-// let animationStarted = false;
+let feedBackPos = document.querySelector('.feedbackcontainer').getBoundingClientRect().top + window.scrollY;
+let feedBackContainer = document.querySelector('.feedbackcontainer');
+let feedBack = document.querySelector('.filter');
 
-
-setInterval(() => {
+document.addEventListener('scroll', e => {
   let position = document.documentElement.scrollTop || document.body.scrollTop;
-  let height = window.innerHeight || document.documentElement.clientHeight ||
- document.getElementsByTagName('body')[0].clientHeight;
-  if(position < height) {
-    console.log("action started1");
-    let activeIndex;
-    children.forEach((item, index) => {
-      if(item.classList.contains('active')) {
-        activeIndex = index;
-        item.classList.remove('active');
-      }
-    });
-    if(activeIndex < children.length-1) {
-      activeIndex++;
-    } else {
-      activeIndex = 0;
-    }
-    if(activeIndex === 0) {
-      bannerSection.style.backgroundImage = "url(http://www.hd-freewallpapers.com/latest-wallpapers/images-of-fruits-to-colour-wallpaper.jpg)";
-    } else if(activeIndex === 1) {
-      bannerSection.style.backgroundImage = "url('https://wallpapercave.com/wp/GSiwme6.jpg')";
-    } else {
-      bannerSection.style.backgroundImage = "url('https://wallpapercave.com/wp/goODzrY.jpg')";
-    }
-    console.log("action ended!");
-    children[activeIndex].classList.add('active');
+  let height = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
+
+  if(position >= widgetSectionPos && !widgetSection.classList.contains('animate')) {
+    widgetSection.classList.add('animate');
   }
-}, 5000);
+  if(staff) {
+    if(position >= staffSectionPos && !staff[0].classList.contains('animate')) {
+      staff.forEach((one, index) => {
+        setTimeout(() => {
+          one.classList.add('animate');
+        }, 500 * index);
+      })
+    }
+  }
+  console.log("postition: " + position);
+  console.log(feedBackPos);
+  if(position >= feedBackPos/1.2 && !feedBackContainer.classList.contains('animate')) {
+    feedBackContainer.classList.add('animate');
+    feedBack.classList.add('animate');
+  }
+
+});

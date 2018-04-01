@@ -1,14 +1,17 @@
-.widget{
+.widget {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  transition: .5s;
+  transition: 0.5s;
+  opacity: 0;
 
+  &.animate {
+    animation: fade 0.5s ease forwards;
+  }
 
-  .text{
-    transition: .5s;
-
+  .text {
+    transition: 0.5s;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -17,21 +20,21 @@
     width: 30%;
     height: 55vh;
     background-color: rgba(1, 1, 1, 0.5);
-
     color: white;
 
-    h4{
+    h4 {
       margin: 10px 30px;
       font-weight: lighter;
     }
-    p{
+
+    p {
       margin: 10px 30px;
       font-size: 47px;
     }
   }
 
-  .picture{
-    transition: .5s;
+  .picture {
+    transition: 0.5s;
 
     &::before {
       content: "";
@@ -48,7 +51,16 @@
     background-color: #111;
     width: 70%;
     height: 55vh;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(200px);
+  }
 
-
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
